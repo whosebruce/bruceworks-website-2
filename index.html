@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruce Works - Professional Handyman Services</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              primary: '#EF3F42',
+              secondary: '#1e3a8a',
+              dark: '#58585A',
+              lightgrey: '#f4f4f4',
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+      body { font-family: 'Inter', sans-serif; }
+      .mobile-menu { transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
+    "vite": "https://esm.sh/vite@^7.3.0",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-white flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+    <!-- We will inject header here or just hardcode it for simplicity since it's static -->
+    
+    <!-- Utility Bar -->
+    <div class="hidden lg:block bg-gray-100 py-2 border-b border-gray-200">
+        <div class="container mx-auto px-6 flex justify-end space-x-6 text-sm text-gray-600">
+            <a href="tel:+1555019988" class="hover:text-primary flex items-center gap-1">
+                <i data-lucide="phone" class="w-3 h-3"></i> Call Us: (555) 019-9888
+            </a>
+            <button onclick="scrollToContact()" class="hover:text-primary">Contact</button>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 bg-white lg:bg-transparent py-5">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <div class="w-10 h-10 bg-primary rounded flex items-center justify-center text-white font-bold text-xl">B</div>
+                        <span class="text-2xl font-black tracking-tighter text-gray-900 lg:text-white header-text">
+                            BRUCE<span class="text-primary">WORKS</span>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="services.html" class="font-medium hover:text-primary transition-colors text-white nav-link">Services</a>
+                    <a href="why-us.html" class="font-medium hover:text-primary transition-colors text-white nav-link">Why Us</a>
+                    <a href="our-work.html" class="font-medium hover:text-primary transition-colors text-white nav-link">Our Work</a>
+                    <a href="faq.html" class="font-medium hover:text-primary transition-colors text-white nav-link">FAQ</a>
+                    <button onclick="scrollToContact()" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-secondary bg-white hover:bg-gray-50 transition-colors btn-header">
+                        Get Free Quote
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-btn" class="p-2 rounded-md text-gray-900">
+                        <i data-lucide="menu" class="w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white absolute top-full left-0 w-full shadow-lg border-t border-gray-100">
+            <div class="px-6 py-4 flex flex-col space-y-4">
+                <a href="services.html" class="text-lg font-medium text-gray-800 hover:text-primary py-2 border-b border-gray-100">Services</a>
+                <a href="why-us.html" class="text-lg font-medium text-gray-800 hover:text-primary py-2 border-b border-gray-100">Why Us</a>
+                <a href="our-work.html" class="text-lg font-medium text-gray-800 hover:text-primary py-2 border-b border-gray-100">Our Work</a>
+                <a href="faq.html" class="text-lg font-medium text-gray-800 hover:text-primary py-2 border-b border-gray-100">FAQ</a>
+                <div class="pt-4">
+                    <button onclick="scrollToContact()" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-red-700 transition-colors">
+                        Get Free Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-secondary -mt-[88px] pt-[88px] lg:-mt-[116px] lg:pt-[116px]">
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/1920/1080?random=10" alt="Handyman working" class="w-full h-full object-cover"/>
+            <div class="absolute inset-0 bg-secondary/80 mix-blend-multiply"></div>
+            <div class="absolute inset-0 bg-black/30"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 py-24 lg:py-40">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
+                    Professional Handyman Services You Can Trust
+                </h1>
+                <h2 class="text-xl lg:text-2xl text-gray-200 mb-8 font-light leading-relaxed max-w-2xl">
+                    More than just repairs—Bruce Works provides a complete range of home maintenance solutions with expert craftsmanship at a fair price.
+                </h2>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="scrollToContact()" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors">
+                        Get Free Quote
+                    </button>
+                    <a href="services.html" class="inline-flex items-center justify-center px-6 py-3 border border-white text-base font-medium rounded-md text-white bg-transparent hover:bg-white/10 transition-colors">
+                        View Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Text -->
+    <section class="py-20">
+        <div class="container mx-auto px-6 text-center max-w-4xl">
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                A Better Way to Maintain Your Home
+            </h2>
+            <p class="text-xl text-gray-600 leading-relaxed">
+                Stop worrying about that leaky faucet or the drywall patch you haven't gotten around to. Bruce Works brings professionalism, skill, and reliability to every job, big or small.
+            </p>
+        </div>
+    </section>
+
+    <!-- Value Props -->
+    <section class="bg-lightgrey py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Items -->
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow text-center">
+                    <div class="flex justify-center mb-6"><i data-lucide="wrench" class="w-10 h-10 text-primary"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Simplify Home Maintenance</h3>
+                    <p class="text-gray-600 leading-relaxed">One call does it all. We handle everything from small repairs to major installations.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow text-center">
+                    <div class="flex justify-center mb-6"><i data-lucide="clock" class="w-10 h-10 text-primary"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Increase Efficiency</h3>
+                    <p class="text-gray-600 leading-relaxed">Our experienced technicians arrive on time with the right tools.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow text-center">
+                    <div class="flex justify-center mb-6"><i data-lucide="thumbs-up" class="w-10 h-10 text-primary"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Satisfaction Guaranteed</h3>
+                    <p class="text-gray-600 leading-relaxed">We stand behind our work. If you're not 100% happy, we'll make it right.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow text-center">
+                    <div class="flex justify-center mb-6"><i data-lucide="shield-check" class="w-10 h-10 text-primary"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Licensed & Insured</h3>
+                    <p class="text-gray-600 leading-relaxed">Rest easy knowing your home is in safe hands. Our team is fully vetted.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow text-center">
+                    <div class="flex justify-center mb-6"><i data-lucide="dollar-sign" class="w-10 h-10 text-primary"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Fair Pricing</h3>
+                    <p class="text-gray-600 leading-relaxed">No hidden fees or surprises. We provide transparent upfront pricing.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow text-center">
+                    <div class="flex justify-center mb-6"><i data-lucide="calendar" class="w-10 h-10 text-primary"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Flexible Scheduling</h3>
+                    <p class="text-gray-600 leading-relaxed">We work around your schedule. Weekend and evening appointments available.</p>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <a href="services.html" class="text-primary font-bold hover:underline text-lg inline-flex items-center gap-2">
+                    See all our services <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Section 1 -->
+    <section class="py-20 overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <div class="w-full lg:w-1/2">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://picsum.photos/800/600?random=1" alt="General Repairs" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <span class="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">General Repairs</span>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">Keep Your Home in Top Shape</h2>
+                    <div class="text-gray-600 text-lg mb-8 leading-relaxed">
+                        <p class="mb-6">From squeaky doors to broken tiles, our general repair services cover all the little annoyances that pile up over time.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3"><span class="mt-1.5 w-2 h-2 rounded-full bg-primary flex-shrink-0"></span><span>Drywall patching and painting</span></li>
+                            <li class="flex items-start gap-3"><span class="mt-1.5 w-2 h-2 rounded-full bg-primary flex-shrink-0"></span><span>Door and window adjustments</span></li>
+                            <li class="flex items-start gap-3"><span class="mt-1.5 w-2 h-2 rounded-full bg-primary flex-shrink-0"></span><span>Hardware replacement</span></li>
+                        </ul>
+                    </div>
+                    <button onclick="scrollToContact()" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-red-700 transition-colors">
+                        Get Free Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Section 2 -->
+    <section class="py-20 overflow-hidden bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
+                <div class="w-full lg:w-1/2">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://picsum.photos/800/600?random=2" alt="Installations" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"/>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <span class="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">Installations</span>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">Professional Installations Done Right</h2>
+                    <div class="text-gray-600 text-lg mb-8 leading-relaxed">
+                        <p class="mb-6">Upgrade your living space with our expert installation services. We ensure everything is secure, level, and functional.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3"><span class="mt-1.5 w-2 h-2 rounded-full bg-primary flex-shrink-0"></span><span>Lighting fixtures and ceiling fans</span></li>
+                            <li class="flex items-start gap-3"><span class="mt-1.5 w-2 h-2 rounded-full bg-primary flex-shrink-0"></span><span>TV mounting</span></li>
+                            <li class="flex items-start gap-3"><span class="mt-1.5 w-2 h-2 rounded-full bg-primary flex-shrink-0"></span><span>Smart home setup</span></li>
+                        </ul>
+                    </div>
+                    <button onclick="scrollToContact()" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-red-700 transition-colors">
+                        Get Free Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="bg-secondary py-20 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="max-w-4xl mx-auto">
+                <i data-lucide="quote" class="w-12 h-12 text-primary mx-auto mb-8 opacity-80"></i>
+                <blockquote class="text-2xl md:text-3xl font-medium text-white mb-8 leading-relaxed">
+                    "Bruce Works transformed our home renovation experience. The team was professional, clean, and the quality of the carpentry was outstanding. I finally found a handyman service I can trust."
+                </blockquote>
+                <cite class="text-primary font-bold text-lg not-italic block">
+                    Sarah Jenkins <span class="text-white/60 font-normal mx-2">-</span> Homeowner, Westside
+                </cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Preview -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                <p class="text-gray-600">Got questions? We've got answers.</p>
+            </div>
+            <div class="space-y-4" id="faq-container">
+                <!-- FAQ Item -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden faq-item">
+                    <button class="w-full px-6 py-4 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors focus:outline-none faq-btn">
+                        <span class="font-semibold text-lg text-gray-800 text-left">What areas do you service?</span>
+                        <i data-lucide="chevron-down" class="text-gray-400 flex-shrink-0 ml-4 faq-icon"></i>
+                    </button>
+                    <div class="hidden bg-gray-50 faq-content">
+                        <div class="px-6 py-4 text-gray-600 leading-relaxed border-t border-gray-100">
+                            We proudly serve the greater metro area and surrounding suburbs. Contact us to check if we service your specific neighborhood.
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ Item -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden faq-item">
+                    <button class="w-full px-6 py-4 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors focus:outline-none faq-btn">
+                        <span class="font-semibold text-lg text-gray-800 text-left">Do you offer free estimates?</span>
+                        <i data-lucide="chevron-down" class="text-gray-400 flex-shrink-0 ml-4 faq-icon"></i>
+                    </button>
+                    <div class="hidden bg-gray-50 faq-content">
+                        <div class="px-6 py-4 text-gray-600 leading-relaxed border-t border-gray-100">
+                            Yes! We provide free, no-obligation estimates for most projects. For smaller jobs, we can often give you a quote over the phone.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <a href="faq.html" class="text-primary font-bold hover:underline">View all FAQs →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section id="contact-form" class="py-20 bg-lightgrey">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-12 bg-white rounded-2xl shadow-xl overflow-hidden">
+                <!-- Text Side -->
+                <div class="lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Ready to Fix Up Your Home?</h2>
+                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                        Don't let that "to-do" list keep growing. Contact Bruce Works today for reliable, professional handyman services.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">1</div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Request a Quote</h4>
+                                <p class="text-sm text-gray-500">Fill out the form or give us a call.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">2</div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Schedule Service</h4>
+                                <p class="text-sm text-gray-500">We pick a time that works for you.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">3</div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Job Done</h4>
+                                <p class="text-sm text-gray-500">Relax while we handle the hard work.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Form Side -->
+                <div class="lg:w-1/2 bg-gray-50 p-10 lg:p-16 border-l border-gray-100">
+                    <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you! We will contact you shortly.');">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-primary focus:border-primary focus:outline-none" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-primary focus:border-primary focus:outline-none" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-primary focus:border-primary focus:outline-none" placeholder="(555) 000-0000">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Project Details</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-primary focus:border-primary focus:outline-none" placeholder="Tell us what needs fixing..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-red-700 transition-colors">
+                            Submit Request
+                        </button>
+                        <p class="text-xs text-gray-500 text-center mt-4">By clicking submit you agree to our privacy policy.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white font-bold">B</div>
+                        <span class="text-xl font-black tracking-tighter">BRUCE<span class="text-primary">WORKS</span></span>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">Your trusted partner for all home repairs and maintenance.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-primary transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-white hover:text-primary transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-white hover:text-primary transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Services</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="services.html" class="hover:text-white transition-colors">General Repairs</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">Installations</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">Maintenance</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Company</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="why-us.html" class="hover:text-white transition-colors">Why Us</a></li>
+                        <li><a href="our-work.html" class="hover:text-white transition-colors">Our Work</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Contact Us</h3>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start gap-3"><i data-lucide="map-pin" class="text-primary w-5 h-5"></i><span>123 Fixit Avenue,<br>Repair City, ST 90210</span></li>
+                        <li class="flex items-center gap-3"><i data-lucide="phone" class="text-primary w-5 h-5"></i><a href="tel:+15550199888" class="hover:text-white">(555) 019-9888</a></li>
+                        <li class="flex items-center gap-3"><i data-lucide="mail" class="text-primary w-5 h-5"></i><a href="mailto:info@bruceworks.com" class="hover:text-white">info@bruceworks.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <p>&copy; 2024 Bruce Works. All rights reserved.</p>
+                <div class="mt-4 md:mt-0 space-x-6">
+                    <a href="#" class="hover:text-white">Privacy</a>
+                    <a href="#" class="hover:text-white">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global Scripts -->
+    <script src="script.js"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

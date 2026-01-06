@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Bruce Works</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Inter', 'sans-serif'] },
+            colors: {
+              primary: '#EF3F42',
+              secondary: '#1e3a8a',
+              dark: '#58585A',
+              lightgrey: '#f4f4f4',
+            }
+          }
+        }
+      }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-white flex flex-col min-h-screen">
+    
+    <!-- Include same header HTML via JS or copy-paste. Copy-pasting for simplicity in static site -->
+    <!-- Utility Bar -->
+    <div class="hidden lg:block bg-gray-100 py-2 border-b border-gray-200">
+        <div class="container mx-auto px-6 flex justify-end space-x-6 text-sm text-gray-600">
+            <a href="tel:+1555019988" class="hover:text-primary flex items-center gap-1"><i data-lucide="phone" class="w-3 h-3"></i> Call Us: (555) 019-9888</a>
+            <button onclick="scrollToContact()" class="hover:text-primary">Contact</button>
+        </div>
+    </div>
+    <!-- Main Header -->
+    <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 bg-white lg:bg-transparent py-5">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <div class="w-10 h-10 bg-primary rounded flex items-center justify-center text-white font-bold text-xl">B</div>
+                        <span class="text-2xl font-black tracking-tighter text-gray-900 lg:text-white header-text">BRUCE<span class="text-primary">WORKS</span></span>
+                    </a>
+                </div>
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="services.html" class="font-medium hover:text-primary transition-colors text-white nav-link">Services</a>
+                    <a href="why-us.html" class="font-medium hover:text-primary transition-colors text-white nav-link">Why Us</a>
+                    <a href="our-work.html" class="font-medium hover:text-primary transition-colors text-white nav-link">Our Work</a>
+                    <a href="faq.html" class="font-medium hover:text-primary transition-colors text-white nav-link">FAQ</a>
+                    <button onclick="scrollToContact()" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-secondary bg-white hover:bg-gray-50 transition-colors btn-header">Get Free Quote</button>
+                </nav>
+                <div class="lg:hidden"><button id="mobile-menu-btn" class="p-2 rounded-md text-gray-900"><i data-lucide="menu" class="w-7 h-7"></i></button></div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white absolute top-full left-0 w-full shadow-lg border-t border-gray-100">
+            <div class="px-6 py-4 flex flex-col space-y-4">
+                <a href="services.html" class="text-lg font-medium text-gray-800 hover:text-primary py-2 border-b border-gray-100">Services</a>
+                <a href="why-us.html" class="text-lg font-medium text-gray-800 hover:text-primary py-2 border-b border-gray-100">Why Us</a>
+                <a href="our-work.html" class="text-lg font-medium text-gray-800 hover:text-primary py-2 border-b border-gray-100">Our Work</a>
+                <a href="faq.html" class="text-lg font-medium text-gray-800 hover:text-primary py-2 border-b border-gray-100">FAQ</a>
+                <div class="pt-4"><button onclick="scrollToContact()" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-red-700 transition-colors">Get Free Quote</button></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="relative bg-secondary -mt-[88px] pt-[88px] lg:-mt-[116px] lg:pt-[116px]">
+        <div class="absolute inset-0 z-0 h-[400px]">
+            <img src="https://picsum.photos/1920/800?random=20" alt="Services" class="w-full h-full object-cover"/>
+            <div class="absolute inset-0 bg-secondary/90 mix-blend-multiply"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 py-16 lg:py-24 h-[300px] flex flex-col justify-center">
+            <h1 class="text-4xl lg:text-5xl font-extrabold text-white mb-4">Our Services</h1>
+            <p class="text-xl text-gray-200 font-light max-w-2xl">Comprehensive handyman solutions for every corner of your home.</p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <div class="bg-white">
+         <section class="py-20 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    <div class="w-full lg:w-1/2">
+                        <img src="https://picsum.photos/800/600?random=1" class="rounded-2xl shadow-xl w-full" alt="General Repairs">
+                    </div>
+                    <div class="w-full lg:w-1/2">
+                        <h2 class="text-3xl font-bold mb-4">General Repairs</h2>
+                        <p class="text-gray-600 mb-6">We handle the small stuff so it doesn't become big stuff.</p>
+                        <ul class="space-y-2 mb-8">
+                            <li class="flex gap-2"><i data-lucide="check" class="text-primary w-5"></i> Drywall patching</li>
+                            <li class="flex gap-2"><i data-lucide="check" class="text-primary w-5"></i> Door adjustments</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+         </section>
+         
+         <section class="py-20 overflow-hidden bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
+                    <div class="w-full lg:w-1/2">
+                        <img src="https://picsum.photos/800/600?random=2" class="rounded-2xl shadow-xl w-full" alt="Installations">
+                    </div>
+                    <div class="w-full lg:w-1/2">
+                        <h2 class="text-3xl font-bold mb-4">Installations</h2>
+                        <p class="text-gray-600 mb-6">Upgrade your home with professional installation services.</p>
+                         <ul class="space-y-2 mb-8">
+                            <li class="flex gap-2"><i data-lucide="check" class="text-primary w-5"></i> Light fixtures & fans</li>
+                            <li class="flex gap-2"><i data-lucide="check" class="text-primary w-5"></i> Smart home devices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+         </section>
+    </div>
+
+    <!-- Contact CTA (Reused) -->
+    <section id="contact-form" class="py-20 bg-lightgrey">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to get started?</h2>
+            <p class="mb-8">Contact us today for a free quote.</p>
+            <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow">
+                 <form class="space-y-4" onsubmit="event.preventDefault(); alert('Sent!');">
+                    <input type="text" placeholder="Name" class="w-full border p-3 rounded">
+                    <input type="email" placeholder="Email" class="w-full border p-3 rounded">
+                    <textarea placeholder="Message" class="w-full border p-3 rounded"></textarea>
+                    <button class="w-full bg-primary text-white p-3 rounded font-bold">Submit</button>
+                 </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Simplified Copy) -->
+    <footer class="bg-secondary text-white py-8 text-center mt-auto">
+        <div class="container mx-auto px-6">
+            <p>&copy; 2024 Bruce Works. <a href="index.html" class="underline">Back to Home</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

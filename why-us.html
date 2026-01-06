@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Us - Bruce Works</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Inter', 'sans-serif'] },
+            colors: { primary: '#EF3F42', secondary: '#1e3a8a', dark: '#58585A', lightgrey: '#f4f4f4' }
+          }
+        }
+      }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-white flex flex-col min-h-screen">
+    <!-- Header Reuse -->
+    <header class="bg-secondary py-4 text-white">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="font-bold text-xl">BRUCE<span class="text-primary">WORKS</span></a>
+            <nav class="hidden lg:flex gap-6">
+                <a href="services.html" class="hover:text-primary">Services</a>
+                <a href="why-us.html" class="text-primary">Why Us</a>
+                <a href="our-work.html" class="hover:text-primary">Our Work</a>
+                <a href="faq.html" class="hover:text-primary">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="bg-secondary py-20 text-white text-center">
+        <h1 class="text-4xl font-bold mb-4">Why Choose Us?</h1>
+        <p class="text-xl text-gray-200">Reliability, Quality, and Trust.</p>
+    </div>
+
+    <section class="py-20 container mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <img src="https://picsum.photos/800/800?random=31" class="rounded-lg shadow-xl" alt="Team">
+            <div>
+                <h2 class="text-3xl font-bold mb-6">The Bruce Works Standard</h2>
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <i data-lucide="check-circle" class="text-primary w-6 h-6 flex-shrink-0"></i>
+                        <div><h3 class="font-bold">Vetted Professionals</h3><p class="text-gray-600">Strict background checks.</p></div>
+                    </div>
+                    <div class="flex gap-4">
+                        <i data-lucide="check-circle" class="text-primary w-6 h-6 flex-shrink-0"></i>
+                        <div><h3 class="font-bold">12-Month Warranty</h3><p class="text-gray-600">We stand by our work.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

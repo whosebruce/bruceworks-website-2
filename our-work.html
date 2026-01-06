@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work - Bruce Works</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Inter', 'sans-serif'] },
+            colors: { primary: '#EF3F42', secondary: '#1e3a8a', dark: '#58585A', lightgrey: '#f4f4f4' }
+          }
+        }
+      }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-white flex flex-col min-h-screen">
+    <header class="bg-secondary py-4 text-white">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="font-bold text-xl">BRUCE<span class="text-primary">WORKS</span></a>
+            <nav class="hidden lg:flex gap-6">
+                <a href="services.html" class="hover:text-primary">Services</a>
+                <a href="why-us.html" class="hover:text-primary">Why Us</a>
+                <a href="our-work.html" class="text-primary">Our Work</a>
+                <a href="faq.html" class="hover:text-primary">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="bg-secondary py-20 text-white text-center">
+        <h1 class="text-4xl font-bold mb-4">Our Work</h1>
+        <p class="text-xl text-gray-200">See our recent projects.</p>
+    </div>
+
+    <section class="py-20 container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="rounded-lg overflow-hidden shadow-lg"><img src="https://picsum.photos/600/400?random=41" class="w-full h-64 object-cover"><div class="p-4"><h3 class="font-bold">Kitchen Repair</h3></div></div>
+            <div class="rounded-lg overflow-hidden shadow-lg"><img src="https://picsum.photos/600/400?random=42" class="w-full h-64 object-cover"><div class="p-4"><h3 class="font-bold">Shelving Unit</h3></div></div>
+            <div class="rounded-lg overflow-hidden shadow-lg"><img src="https://picsum.photos/600/400?random=43" class="w-full h-64 object-cover"><div class="p-4"><h3 class="font-bold">Deck Refinishing</h3></div></div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

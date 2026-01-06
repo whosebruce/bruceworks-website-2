@@ -1,0 +1,8 @@
+{
+  "name": "bruce-works-static",
+  "version": "1.0.0",
+  "description": "Static HTML website for Bruce Works",
+  "scripts": {
+    "start": "npx serve ."
+  }
+}

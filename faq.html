@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Bruce Works</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Inter', 'sans-serif'] },
+            colors: { primary: '#EF3F42', secondary: '#1e3a8a', dark: '#58585A', lightgrey: '#f4f4f4' }
+          }
+        }
+      }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-white flex flex-col min-h-screen">
+    <header class="bg-secondary py-4 text-white">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="font-bold text-xl">BRUCE<span class="text-primary">WORKS</span></a>
+            <nav class="hidden lg:flex gap-6">
+                <a href="services.html" class="hover:text-primary">Services</a>
+                <a href="why-us.html" class="hover:text-primary">Why Us</a>
+                <a href="our-work.html" class="hover:text-primary">Our Work</a>
+                <a href="faq.html" class="text-primary">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="bg-secondary py-20 text-white text-center">
+        <h1 class="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
+    </div>
+
+    <section class="py-20 container mx-auto px-6 max-w-4xl">
+        <div class="space-y-4" id="faq-container-page">
+             <div class="border border-gray-200 rounded-lg overflow-hidden faq-item">
+                <button class="w-full px-6 py-4 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors focus:outline-none faq-btn">
+                    <span class="font-semibold text-lg text-gray-800">What areas do you service?</span>
+                    <i data-lucide="chevron-down" class="text-gray-400 faq-icon"></i>
+                </button>
+                <div class="hidden bg-gray-50 faq-content"><div class="px-6 py-4 text-gray-600">We proudly serve the greater metro area.</div></div>
+            </div>
+             <div class="border border-gray-200 rounded-lg overflow-hidden faq-item">
+                <button class="w-full px-6 py-4 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors focus:outline-none faq-btn">
+                    <span class="font-semibold text-lg text-gray-800">Are you insured?</span>
+                    <i data-lucide="chevron-down" class="text-gray-400 faq-icon"></i>
+                </button>
+                <div class="hidden bg-gray-50 faq-content"><div class="px-6 py-4 text-gray-600">Yes, fully licensed and insured.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
